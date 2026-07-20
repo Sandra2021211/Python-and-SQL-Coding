@@ -9,8 +9,8 @@ FROM(
         Id,
         `Month`,
         SUM (Salary) OVER(
-            PARTITION BY Id,
-            ORDER BY `Month`,
+            PARTITION BY Id
+            ORDER BY `Month`
             ROWS BETWEEN 2 PRECEEDING AND CURRENT ROW
         ) AS Salary,
         MAX(`Month`) OVER(
